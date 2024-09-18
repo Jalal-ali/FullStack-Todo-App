@@ -143,8 +143,8 @@ const navigate = useNavigate();
         </p>
       </div>
     </div>
-    <div className="flex justify-center self-center z-0">
-      <div className="p-9 mb-3 mt-3 mx-auto text-white-100 bg-black dark:bg-black  dark:border-gray-700 rounded-2xl w-100 ">
+    <div className="flex justify-center self-center p-5 z-0">
+      <div className="p-9 mb-3 me-auto my-auto  justify-center mx-auto text-white-100 bg-black dark:bg-black  dark:border-gray-700 rounded-2xl w-100 ">
         <div className="space-y-5">
           <h1 className="text-xl text-white font-bold leading-tight tracking-tight text-white-900 md:text-2xl dark:text-white">
             Login To Your Account
@@ -188,7 +188,7 @@ const navigate = useNavigate();
             </button>
             <p className="text-sm font-light text-gray-500 dark:text-gray-300">
               New User?{" "}
-              <Link className="font-medium text-primary-700 hover:underline dark:text-primary-500" to={`/register`} >Register Here!</Link>            </p>
+              <Link className="font-medium text-gray-400 hover:underline dark:text-primary-500" to={`/register`} >Register Here!</Link>            </p>
           </form>
           <div className="flex w-full items-center gap-2 py-1 text-sm text-slate-600">
             <div className="h-px w-full bg-slate-200" />
@@ -205,7 +205,7 @@ const navigate = useNavigate();
                 className="absolute  left-0 w-4"
                 alt="google logo"
               />
-              <span className="block w-max font-semibold tracking-wide text-gray-700 dark:text-white text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
+              <span className="block w-max font-semibold tracking-wide text-gray-400 dark:text-white text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
                 Continue with Google
               </span>
             </div>

@@ -95,9 +95,9 @@ const googleLogin = ()=>{
       "url(https://t4.ftcdn.net/jpg/03/01/90/79/360_F_301907970_ZVaPcSGe9rgYgRMRGUcbf91YxNwB7d2W.jpg)"
   }}
 >
-  <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
+  <div className="min-h-screen sm:flex sm:flex-row mx-auto p-5 justify-center">
     <div className="flex justify-center self-center z-0">
-      <div className="p-9 mt-4 mb-3 text-white-100 bg-gray-900 mx-auto dark:bg-gray-800 dark:border-gray-700 rounded-2xl w-100 ">
+      <div className="p-9 mb-3 me-auto my-auto   text-white-100 bg-gray-900 mx-auto dark:bg-gray-800 dark:border-gray-700 rounded-2xl w-100 ">
         <div className="space-y-5">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-white-900 md:text-2xl dark:text-white">
             Create an account
@@ -185,7 +185,7 @@ const googleLogin = ()=>{
                 className="absolute  left-0 w-4"
                 alt="google logo"
               />
-              <span className="block w-max font-semibold tracking-wide text-gray-700 dark:text-white text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
+              <span className="block w-max font-semibold tracking-wide text-gray-400 dark:text-white text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">
                 Continue with Google
               </span>
             </div>

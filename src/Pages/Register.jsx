@@ -88,12 +88,8 @@ const googleLogin = ()=>{
 </div> : null }
 
 
-
-
-
-    
     <div
-  className="bg-no-repeat bg-cover bg-center relative"
+  className="bg-no-repeat bg-cover text-white bg-center relative"
   style={{
     backgroundImage:
       "url(https://t4.ftcdn.net/jpg/03/01/90/79/360_F_301907970_ZVaPcSGe9rgYgRMRGUcbf91YxNwB7d2W.jpg)"

@@ -46,8 +46,6 @@ const navigate = useNavigate();
        console.log(credential);
        
    
-
-      // Assuming setPopup and setUid are state setters (e.g., in React)
       setPopup(true);
       setUid(user.email);
     })
@@ -148,7 +146,7 @@ const navigate = useNavigate();
     <div className="flex justify-center self-center z-0">
       <div className="p-9 mb-3 mt-3 mx-auto text-white-100 bg-black dark:bg-black  dark:border-gray-700 rounded-2xl w-100 ">
         <div className="space-y-5">
-          <h1 className="text-xl font-bold leading-tight tracking-tight text-white-900 md:text-2xl dark:text-white">
+          <h1 className="text-xl text-white font-bold leading-tight tracking-tight text-white-900 md:text-2xl dark:text-white">
             Login To Your Account
           </h1>
           <hr />
@@ -156,7 +154,7 @@ const navigate = useNavigate();
             <div className="space-y-2">
               <label
                 htmlFor="email"
-                className="block mb-2 text-sm font-medium text-white-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-white dark:text-white"
               >
                 Your Email
               </label>

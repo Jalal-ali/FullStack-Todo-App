@@ -224,4 +224,4 @@ const googleLogin = ()=>{
   )
 }
 
-export default Register
+export default Register ;

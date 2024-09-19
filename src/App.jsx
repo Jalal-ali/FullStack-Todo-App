@@ -1,16 +1,14 @@
-import { onAuthStateChanged, signOut } from "firebase/auth";
 import {  useEffect, useRef , useState} from "react";
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { auth , db } from "./config";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection, getDocs, orderBy, query, serverTimestamp } from "firebase/firestore";
-// import { useNavigate } from "react-router-dom";
 
 function App() {
   const [todo , setTodo] = useState([]);
   const [data , setData] = useState([]);
   const todoVal = useRef()
- const navigate = useNavigate()
+ const navigate = useNavigate() ; 
  
  // onAuthStateChanged(auth, (user) => {
   //   if (user) {
@@ -22,21 +20,22 @@ function App() {
   //   }
   // });
 
-  //func getData from fire base
-  async function getData() {
-    const q = query(collection(db, "todos"),orderBy('postTime' , 'desc'))
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc , index) => {
-        if(doc.data().uid == auth.currentUser.uid){
-      console.log(doc.data());
-      data.push(doc.data())
-      console.log(data);
-      
-      }
-    });
-    } //..getData func ended ..//
-    getData()
   useEffect(()=>{
+      //func getData from fire base
+      async function getData() {
+        const q = query(collection(db, "todos"),orderBy('postTime' , 'desc'))
+          const querySnapshot = await getDocs(q);
+          querySnapshot.forEach((doc) => {
+            if(doc.data().uid == auth.currentUser.uid){
+          console.log(doc.data());
+          data.push(doc.data())
+          console.log(data);
+          
+          }
+        });
+        } //..getData func ended ..//
+    getData()
+
   } , [])
   
   const saveData = async ()=> {

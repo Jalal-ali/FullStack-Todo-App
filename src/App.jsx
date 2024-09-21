@@ -1,14 +1,15 @@
 import {  useEffect, useRef , useState} from "react";
 // import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { auth , db } from "./config";
-import { useNavigate } from "react-router-dom";
+auth
+// import { useNavigate } from "react-router-dom";
 import { addDoc, collection, getDocs, orderBy, query, serverTimestamp } from "firebase/firestore";
 
 function App() {
   const [todo , setTodo] = useState([]);
-  const [data , setData] = useState([]);
+  // const [data , setData] = useState([]);
   const todoVal = useRef()
- const navigate = useNavigate() ; 
+//  const navigate = useNavigate() ; 
  
  // onAuthStateChanged(auth, (user) => {
   //   if (user) {
@@ -21,23 +22,22 @@ function App() {
   // });
 
   useEffect(()=>{
-      //func getData from fire base
-      async function getData() {
-        const q = query(collection(db, "todos"),orderBy('postTime' , 'desc'))
-          const querySnapshot = await getDocs(q);
-          querySnapshot.forEach((doc) => {
-            if(doc.data().uid == auth.currentUser.uid){
-          console.log(doc.data());
-          data.push(doc.data())
-          console.log(data);
-          
-          }
-        });
-        } //..getData func ended ..//
-    getData()
+    //func getData from fire base
+    async function getData() {
+      const q = query(collection(db, "todos"),orderBy('postTime' , 'desc'))
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+          if(doc.data().uid == auth.currentUser.uid){
+            setTodo(...doc.data())
+        console.log(doc.data());
+        console.log(todo);
+        } 
+      });
+  } //..getData func ended ..//
 
-  } , [])
-  
+  getData()
+} , [])
+
   const saveData = async ()=> {
     try {
       const docRef = await addDoc(collection(db, "todos"), {
@@ -86,7 +86,7 @@ const editTodo = (index)=>{
 
 
     <div className="w-3/4 mx-auto text-center mt-8">
-  <h1 className="text-4xl text-center font-bold  font-bold dark:text-slate-900 leading-tight mb-2 border-t-4 border-b-4 border-slate-700 py-4">
+  <h1 className="text-4xl text-center font-bold dark:text-slate-900 leading-tight mb-2 border-t-4 border-b-4 border-slate-700 py-4">
     To-Do App
   </h1>
   <p className="lg:text-lg md:text-lg sm:text-md text-slate-950 mb-8">Stay on top of your day with our intuitive to-do app.</p>
@@ -104,9 +104,6 @@ const editTodo = (index)=>{
   </div>
       </form>
       <ul className="todo-list text-center border rounded-md mt-6 bg-slate-900">
-        {data.map((todo)=>{
-         return <li key={todo.uid} className="text-gray-100 border-b pr-2 p-1 pl-2 border-slate-500 border-t m-3 flex justify-between rounded-lg">{todo.Todo}</li>
-        })}
     {todo.length > 0 ? todo.map((item , index)=>{
       return (<div key={index}>
         <li className="text-gray-100 border-b pr-2 p-1 pl-2 border-slate-500 border-t m-3 flex justify-between rounded-lg">{item}<span><button onClick={()=>dltTodo(index)} className="text-red-500 me-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">

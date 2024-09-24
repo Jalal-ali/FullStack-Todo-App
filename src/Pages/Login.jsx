@@ -126,14 +126,14 @@ const navigate = useNavigate();
  : null}
 
     <div
-  className="bg-no-repeat bg-cover bg-center relative"
+  className="bg-no-repeat  bg-cover bg-center relative"
   style={{
     backgroundImage:
       "url(https://img.freepik.com/free-photo/studio-background-concept-dark-gradient-purple-studio-room-background-product_1258-53875.jpg)"
   }}
 >
-  <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
-    <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
+  <div className="h-auto p-5 sm:flex sm:flex-row mx-auto justify-center">
+    <div className="flex-col flex self-center p- sm:max-w-5xl xl:max-w-2xl z-10">
       <div className="self-start hidden lg:flex flex-col  text-white">
         <h1 className="mb-3 font-bold text-5xl">Hi ? Welcome !! </h1>
         <p className="p-3">
@@ -143,8 +143,8 @@ const navigate = useNavigate();
         </p>
       </div>
     </div>
-    <div className="flex justify-center self-center p-5 z-0">
-      <div className="p-9 mb-3 me-auto my-auto  justify-center mx-auto text-white-100 bg-black dark:bg-black  dark:border-gray-700 rounded-2xl w-100 ">
+    <div className="flex justify-center self-center p- z-0">
+      <div className="p-9 mb-3 me-auto my-auto justify-center mx-auto text-white-100 bg-black dark:bg-black  dark:border-gray-700 rounded-2xl w-100 ">
         <div className="space-y-5">
           <h1 className="text-xl text-white font-bold leading-tight tracking-tight text-white-900 md:text-2xl dark:text-white">
             Login To Your Account

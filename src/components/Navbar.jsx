@@ -21,9 +21,7 @@ const Navbar = () => {
         
       } else {
         setOutbtn(false);
-        setSign(true)
-        console.log("user ni h")
-        
+        setSign(true)        
         // navigate("/login")
       }
     });
@@ -32,7 +30,7 @@ const Navbar = () => {
   const logout = () => {
     signOut(auth).then(() => {
       navigate("/login")
-      console.log("logout hogya");
+      // console.log("logout hogya");
       setEmail(null)
       
     }).catch((error) => {

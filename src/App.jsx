@@ -1,5 +1,5 @@
 import {  useEffect, useRef , useState} from "react";
-// import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth , db } from "./config";
 auth
 // import { useNavigate } from "react-router-dom";
@@ -10,30 +10,32 @@ function App() {
   const todoVal = useRef()
 //  const navigate = useNavigate() ; 
  
- // onAuthStateChanged(auth, (user) => {
-  //   if (user) {
-  //     console.log("logged in h");
-  //     const uid = user.uid;
-  //   } else {
-  //     alert("user ni h");
-  //     navigate("/login")
-  //   }
-  // });
+ 
 
   useEffect(()=>{
-    //func getData from fire base
-    async function getData() {
-      const q = query(collection(db, "todos"),orderBy('postTime' , 'asc'))
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-          if(doc.data().uid == auth.currentUser.uid){
-            todo.push(doc.data().Todo)
-            setTodo([...todo])
-            console.log(todo);
-          } 
-      });
-    } //..getData func ended ..//
-    getData()
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("logged in h");
+        // const uid = user.uid;
+ //func getData from fire base
+ async function getData() {
+  const q = query(collection(db, "todos"),orderBy('postTime' , 'asc'))
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+      if(doc.data().uid == auth.currentUser.uid){
+        todo.push(doc.data().Todo)
+        setTodo([...todo])
+        console.log(todo);
+      } 
+  });
+} //..getData func ended ..//
+getData()
+      }else {
+        console.log("user ni h");
+        // navigate("/login")
+      }
+    });
+   
     
   } , [])
 
@@ -81,11 +83,12 @@ const editTodo = (index)=>{
 
   return (
     <>
+<div className="py-5 h-screen bg-cover bg-gradient-to-r from-indigo-950 via-slate-400 to-teal-600 ...">
 
 
 
-    <div className="w-3/4 mx-auto text-center mt-8">
-  <h1 className="text-4xl text-center font-bold dark:text-slate-900 leading-tight mb-2 border-t-4 border-b-4 border-slate-700 py-4">
+    <div className="w-3/4 mx-auto text-center">
+  <h1 className="text-4xl  text-center font-bold dark:text-slate-900 leading-tight mb-2 border-t-4 border-b-4 border-slate-700 py-4">
     To-Do App
   </h1>
   <p className="lg:text-lg md:text-lg sm:text-md text-slate-950 mb-8">Stay on top of your day with our intuitive to-do app.</p>
@@ -115,12 +118,15 @@ const editTodo = (index)=>{
 </button></span> </li>
       </div>
       )
-  }) : <h1 className="text-zinc-400 p-2 font-mono font-semi-bold">No Todos Found!</h1> }
+    }) : <h1 className="text-zinc-400 p-2 font-mono font-semi-bold">No Todos Found!</h1> }
                 </ul>
     </div>
     
     </div>
 
+
+
+    </div>
     </>
   )
 }

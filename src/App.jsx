@@ -83,7 +83,7 @@ const editTodo = (index)=>{
 
   return (
     <>
-<div className="py-5 h-screen bg-cover bg-gradient-to-r from-indigo-950 via-slate-400 to-teal-600 ...">
+<div className="py-5 h-auto bg-cover bg-gradient-to-r from-indigo-950 via-slate-400 to-teal-600 ...">
 
 
 
